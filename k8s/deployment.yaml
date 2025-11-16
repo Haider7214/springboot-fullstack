@@ -3,26 +3,27 @@ kind: Deployment
 metadata:
   name: crm-deployment
   labels:
-    app: crm-app
+    app: crm
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: crm-app
+      app: crm
   template:
     metadata:
       labels:
-        app: crm-app
+        app: crm
     spec:
       containers:
-      - name: crm-container
-        image: haidertelusko/crm-app:latest
-        ports:
-        - containerPort: 8484
-        env:
-        - name: SPRING_DATASOURCE_URL
-          value: jdbc:mysql://<EC2-MySQL-IP>:3306/javaai
-        - name: SPRING_DATASOURCE_USERNAME
-          value: root
-        - name: SPRING_DATASOURCE_PASSWORD
-          value: root123
+        - name: crm-container
+          image: haidertelusko/crm-app:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8484
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:mysql://172.31.29.170:3306/javaai
+            - name: SPRING_DATASOURCE_USERNAME
+              value: crmuser
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: crm123
