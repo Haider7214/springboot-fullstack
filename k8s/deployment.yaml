@@ -22,8 +22,14 @@ spec:
             - containerPort: 8484
           env:
             - name: SPRING_DATASOURCE_URL
-              value: jdbc:mysql://172.31.29.170:3306/javaai
+              valueFrom:
+                envVarSource:
+                  name: DB_URL
             - name: SPRING_DATASOURCE_USERNAME
-              value: crmuser
+              valueFrom:
+                envVarSource:
+                  name: DB_USER
             - name: SPRING_DATASOURCE_PASSWORD
-              value: crm123
+              valueFrom:
+                envVarSource:
+                  name: DB_PASS
