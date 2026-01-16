@@ -7,6 +7,5 @@ spec:
   selector:
     app: crm
   ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 8484
+  - port: 80
+    targetPort: 8484
