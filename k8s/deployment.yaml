@@ -26,7 +26,4 @@ spec:
             - name: SPRING_DATASOURCE_USERNAME
               value: "crmuser"
             - name: SPRING_DATASOURCE_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: rds-secret
-                  key: password
+              value: "1q2"
